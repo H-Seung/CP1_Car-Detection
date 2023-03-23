@@ -4,11 +4,11 @@ from PIL import ImageFont, ImageDraw, Image
 from tqdm import tqdm
 
 class Detection:
-    def __init__(self, model_path):
+    def __init__(self, model_path, conf):
         self.model_path = model_path
         self.INPUT_WIDTH = 832  # input image의 width ※ onnx 로 내보낼때 832로 설정했음
         self.INPUT_HEIGHT = 832  # input image의 height
-        self.CONF_THRESHOLD = 0.4  # 객체 필터링 임계값
+        self.CONF_THRESHOLD = conf  # 객체 필터링 임계값
         self.SCORE_THRESHOLD = 0.5  # class 필터링 임계값
         self.NMS_THRESHOLD = 0.45  # 겹치는 box 제거 임계값
         self.labels = {0:'적재불량',1:'정상차량'}
@@ -179,33 +179,3 @@ def is_ascii(s=''):
     # Is string composed of all ASCII (no UTF) characters? (note str().isascii() introduced in python 3.7)
     s = str(s)  # convert list, tuple, None, etc. to str
     return len(s.encode().decode('ascii', 'ignore')) == len(s)
-
-
-
-# import os
-
-# os.chdir(os.path.abspath(os.path.join(os.path.abspath(''), os.pardir)))
-# print(os.getcwd())
-
-# model_path = './models/best.onnx'
-# d = Detection(model_path)
-
-# # input_path = './data/sample.mp4'
-# # output_path = './results/output.mp4'
-# # d.detect(input_path, output_path)
-
-# # input_path = './data/sample2.mp4'
-# # output_path = './results/output2.mp4'
-# # d.detect(input_path, output_path)
-
-# # input_path = './data/sample3.mp4'
-# # output_path = './results/output3.mp4'
-# # d.detect(input_path, output_path)
-
-# input_path = './data/A01_B02_C00_D01_0703_E08_F03_554_1.jpg'
-# output_path = './results/img_554.jpg'
-# d.detect(input_path,output_path)
-
-# # input_path = './data/A01_B02_C00_D01_0703_E08_F03_568_3.jpg'
-# # output_path = './results/img_568.jpg'
-# # d.detect(input_path,output_path)

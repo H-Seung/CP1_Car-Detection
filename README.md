@@ -64,22 +64,21 @@ git clone https://github.com/H-Seung/AI_16_HanSeungHee_CP1_DS.git
 cd AI_16_HanSeungHee_CP1_DS
 pip install -r requirements.txt
 ```
-파일 `detect.py`에서 detect를 수행할 데이터의 경로(input_path)와 결과가 저장될 파일 경로(output_path)를 설정해주세요.</br>
-아래는 `detect.py` 의 코드입니다.</br>(해당 코드에서 input_path,output_path는 테스트할 수 있도록 설정되어 있습니다. 원하는 경로로 수정해주세요.)
-```
-from utils.detection import Detection
+detect를 수행할 데이터들의 폴더 경로(input)와 결과가 저장될 폴더 경로(output), 객체 탐지 임계값(conf) 인자를 설정하여 실행할 수 있습니다.</br>
+python detection.py --model_path [가중치 파일 경로] --input [데이터 폴더 경로] --output [결과 저장폴더 경로] --conf [confidence threshold]
 
-model_path = './models/best.onnx'
-d = Detection(model_path)
-
-input_path = './data/sample2.mp4'
-output_path = './results/output2.mp4'
-d.detect(input_path, output_path)
 ```
-**터미널**에서 다음을 실행해주세요.
+# 예시
+python detect.py --model_path ./models/best.onnx
+                 --input /c/Users/LG/Desktop/test1
+                 --output /c/Users/LG/Desktop/test2
+                 --conf 0.3
 ```
+또는 인자값을 설정하지 않고 default 값으로 실행할 수 있습니다.
+```
+# 예시
 python detect.py
 ```
-객체탐지를 수행한 결과 이미지 또는 영상이 output_path에 저장됩니다.
+설정된 폴더 경로(input) 내의 모든 이미지 또는 영상파일(.jpg, .mp4)에 대해 model_path의 가중치 파일(.onnx)을 이용하여, 객체탐지를 수행한 결과 이미지 또는 영상이 output 폴더에 저장됩니다.
 
 ※ 동일한 수행을 `test/test.ipynb`에서 Interactive 형태로 작동을 확인할 수 있습니다.
