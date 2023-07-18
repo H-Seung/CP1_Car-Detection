@@ -6,6 +6,9 @@
 - 프로젝트 배경 : 영상에서 과적차량을 인식하여 단속하는 서비스를 개발하고자 한다
 - 이용 데이터 : 과적 차량(500장)과 정상 차량(500장)의 이미지(jpg) 및 라벨링 데이터(json)
 - 사용 모델 : yolov5s6
+- 학습에 이용한 데이터 : [AI HUB - 과적차량 도로 위험 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=530)
+  ![image](https://github.com/H-Seung/CP1_Car-Detection/assets/114974542/57fe6c49-01df-4067-af68-9800060df7d1)
+
 
 패키지 정보
 -------------
@@ -41,7 +44,6 @@
 모델을 test 할 수 있는 sample data 입니다.
 ### models
 onnx 형태의 사전학습된 model (`best.onnx`) 이 저장되어 있습니다.</br>
-[학습한 데이터 파일](https://drive.google.com/file/d/11TI52Dwm135_VKmnOEQa9WbZYyWCBHHZ/view?usp=share_link)</br>
 모델 학습과정은 `AI_16기_한승희_CP1_DS.ipynb` 에서 볼 수 있습니다.
 ### results
 `detection.py`에 의해 생성된 결과 영상/이미지가 해당 폴더에 저장됩니다.</br>
