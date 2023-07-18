@@ -9,6 +9,16 @@
 - 학습에 이용한 데이터 : [AI HUB - 과적차량 도로 위험 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=530)
   ![image](https://github.com/H-Seung/CP1_Car-Detection/assets/114974542/57fe6c49-01df-4067-af68-9800060df7d1)
 
+모델 학습 및 성능 평가
+------------
+- 모델 학습
+  ```
+  !python train.py --img 832 --batch 32 --epochs 50 --data ./vehicle/dataset.yaml\
+  --cfg ./models/custom_yolov5s6.yaml\ --weights ''\
+  ```
+- 모델 성능
+  ![image](https://github.com/H-Seung/CP1_Car-Detection/assets/114974542/ef4ec403-a0bc-4416-ba8d-172bc0193239)
+
 
 패키지 정보
 -------------
